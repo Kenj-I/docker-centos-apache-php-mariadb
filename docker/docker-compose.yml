@@ -23,13 +23,12 @@ services:
     container_name: cent_php_database
 
   web:
-    build: ./centos_php71
-#     build: ./centos_php56
+    build: ./centos
     ports:
       - "8080:80"
     volumes:
       - ../project:/var/www
-      - ./php71-apache/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./centos/php.ini:/usr/local/etc/php/conf.d/php.ini
       - ../log/error.log:/var/log/httpd/error.log
       - ../log/access.log:/var/log/httpd/access.log
     links:

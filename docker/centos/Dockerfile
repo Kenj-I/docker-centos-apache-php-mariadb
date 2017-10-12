@@ -8,14 +8,31 @@ ENV TZ=Asia/Tokyo
 RUN yum -y update
 
 #Yum install
-RUN yum -y install wget curl httpd
+RUN yum -y install \
+		wget \
+		curl \
+		httpd
 
 # Install & Add repo
 RUN yum -y install epel-release
 RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
-# Install PHP5.6 & Apache
-RUN yum install --enablerepo=remi,remi-php71 -y php php-devel php-mbstring php-pdo php-gd php-mysql php-curl php-posix php-xml php-pecl-apc php-bcmath
+# Install PHP56
+# RUN yum install --enablerepo=remi,remi-php56 -y \
+
+# Install PHP71
+RUN yum install --enablerepo=remi,remi-php71 -y \
+		php \
+		php-devel \
+		php-mbstring
+		php-pdo \
+		php-gd \
+		php-mysql \
+		php-curl \
+		php-posix \
+		php-xml \
+		php-pecl-apc \
+		php-bcmath
 
 # expose
 EXPOSE 80
