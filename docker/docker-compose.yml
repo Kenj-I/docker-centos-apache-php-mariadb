@@ -23,14 +23,17 @@ services:
     container_name: cent_php_database
 
   web:
-    build: ./centos
+    build: centos
+    image: centos_server:apache_php71
     ports:
       - "8080:80"
     volumes:
       - ../project:/var/www
-      - ./centos/php.ini:/usr/local/etc/php/conf.d/php.ini
       - ../log/error.log:/var/log/httpd/error.log
       - ../log/access.log:/var/log/httpd/access.log
+      - ./centos/php.ini:/etc/php.ini
+      - ./centos/httpd.conf:/etc/httpd/conf/httpd.conf
+      - ./centos/vhosts.conf:/etc/httpd/conf.d/vhosts.conf
     links:
       - database
     environment:
@@ -39,4 +42,4 @@ services:
       DATABASE_USER: development
       DATABASE_PASSWORD: development
     container_name: cent_php_web
-    command: /usr/sbin/httpd -DFOREGROUND
+    # command: /usr/sbin/httpd -DFOREGROUND
