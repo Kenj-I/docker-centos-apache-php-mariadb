@@ -24,7 +24,7 @@ services:
 
   web:
     build: centos
-    image: centos_server:apache_php71
+    image: centos_server:apache_php71_dev
     ports:
       - "8080:80"
     volumes:
