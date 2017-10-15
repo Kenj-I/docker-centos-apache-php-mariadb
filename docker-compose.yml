@@ -19,7 +19,7 @@ services:
     volumes:
       #if you insert init data
       #- ../app/initial.sql:/docker-entrypoint-initdb.d/initial.sql
-      - ../data:/var/lib/mysql
+      - ./data:/var/lib/mysql
 
   webserver:
     build: build
