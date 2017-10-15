@@ -20,20 +20,19 @@ services:
       #if you insert init data
       #- ../app/initial.sql:/docker-entrypoint-initdb.d/initial.sql
       - ../data:/var/lib/mysql
-    container_name: cent_php_database
 
-  web:
-    build: centos
+  webserver:
+    build: build
     image: centos_server:apache_php71_dev
     ports:
       - "8090:80"
     volumes:
-      - ../project:/var/www
-      - ../log/error.log:/var/log/httpd/error.log
-      - ../log/access.log:/var/log/httpd/access.log
-      - ./centos/php.ini:/etc/php.ini
-      - ./centos/httpd.conf:/etc/httpd/conf/httpd.conf
-      - ./centos/vhosts.conf:/etc/httpd/conf.d/vhosts.conf
+      - ./project:/var/www
+      - ./log/error.log:/var/log/httpd/error.log
+      - ./log/access.log:/var/log/httpd/access.log
+      - ./build/php.ini:/etc/php.ini
+      - ./build/httpd.conf:/etc/httpd/conf/httpd.conf
+      - ./build/vhosts.conf:/etc/httpd/conf.d/vhosts.conf
     links:
       - database
     environment:
@@ -41,5 +40,4 @@ services:
       DATABASE_NAME: project
       DATABASE_USER: development
       DATABASE_PASSWORD: development
-    container_name: cent_php_web
     # command: /usr/sbin/httpd -DFOREGROUND
