@@ -26,7 +26,7 @@ services:
     build: centos
     image: centos_server:apache_php71_dev
     ports:
-      - "8080:80"
+      - "8090:80"
     volumes:
       - ../project:/var/www
       - ../log/error.log:/var/log/httpd/error.log
