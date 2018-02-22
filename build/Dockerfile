@@ -32,6 +32,7 @@ RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 # Install PHP & Apache
 RUN yum install \
 		--enablerepo=remi,remi-php56 \
+		# --enablerepo=remi.remi-php71 \
 		-y \
 		php \
 		php-devel \

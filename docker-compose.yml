@@ -14,7 +14,8 @@ services:
 
   webserver:
     build: build
-    image: centos_server:apache_php71_dev
+    # image: centos_server:apache_php71_dev
+    image: centos_server:apache_php56_dev
     ports:
       - "80"
     volumes:
