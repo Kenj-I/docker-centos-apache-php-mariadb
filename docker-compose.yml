@@ -16,8 +16,7 @@ services:
     build: build
     # image: centos_server:apache_php71_dev
     image: centos_server:apache_php56_dev
-    ports:
-      - "80"
+    env_file: ./build/envfile
     volumes:
       - ./project:/var/www
       # - ./log/error.log:/var/log/httpd/error.log
@@ -27,8 +26,12 @@ services:
       - ./build/vhosts.conf:/etc/httpd/conf.d/vhosts.conf
     depends_on:
       - database
+    # ports:
+    #   - "8088:80"
     environment:
-      VIRTUAL_HOST: "$VIRTUAL_HOST"
+      - VIRTUAL_HOST=$VIRTUAL_HOST
+    networks:
+      - external_nginx_proxy
 
     # command: /usr/sbin/httpd -DFOREGROUND
   
