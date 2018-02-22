@@ -29,9 +29,9 @@ RUN yum -y install \
 RUN yum -y install epel-release
 RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
-# Install PHP71 & Apache
+# Install PHP & Apache
 RUN yum install \
-		--enablerepo=remi,remi-php71 \
+		--enablerepo=remi,remi-php56 \
 		-y \
 		php \
 		php-devel \
