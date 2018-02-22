@@ -13,7 +13,9 @@ $ cd docker-centos-apache-php-mariadb-development
 $ sh init.sh
 ```
 
-## write info
+## write env
+
+.env and build/envfile
 
 if use nginx_proxy, set virtualhost and your hosts
 
