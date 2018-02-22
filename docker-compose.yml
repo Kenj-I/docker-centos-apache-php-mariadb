@@ -31,8 +31,8 @@ services:
 
     # command: /usr/sbin/httpd -DFOREGROUND
   
-  #settin virtualhost
-  networks:
-      external_nginx_proxy:
-          external:
-              name: proxy_net
+#settin virtualhost
+networks:
+  external_nginx_proxy:
+    external:
+        name: proxy_net
