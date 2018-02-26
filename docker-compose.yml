@@ -11,6 +11,8 @@ services:
       #if you insert init data
       #- ../app/initial.sql:/docker-entrypoint-initdb.d/initial.sql
       - ./data:/var/lib/mysql
+    networks:
+      - app
 
   webserver:
     build: build
@@ -32,11 +34,13 @@ services:
       - VIRTUAL_HOST=$VIRTUAL_HOST
     networks:
       - external_nginx_proxy
+      - app
 
     # command: /usr/sbin/httpd -DFOREGROUND
   
 #settin virtualhost
 networks:
+  app:
   external_nginx_proxy:
     external:
         name: proxy_net
