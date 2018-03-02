@@ -12,6 +12,8 @@ RUN rm -f /etc/rpm/macros.image-language-conf && \
     sed -i '/^override_install_langs=/d' /etc/yum.conf && \
     yum -y reinstall glibc-common && \
     yum clean all
+	
+RUN yum reinstall -y glibc-common && yum clean all
 
 ENV LANG="en_US.UTF-8" \
     LANGUAGE="en_US:en" \
