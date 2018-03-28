@@ -20,10 +20,23 @@ $ sh init.sh
 if use nginx_proxy, set virtualhost and your hosts
 
 ```.env
-//ex
+//.env
 
-VIRTUAL_HOST=hogehoge.local
-HOST_DB_PORT=33306
+VIRTUAL_HOST=
+HOST_DB_PORT=
+```
+
+```envfile
+MYSQL_ROOT_PASSWORD=
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+
+DATABASE_HOST=
+DATABASE_NAME=
+DATABASE_USER=
+DATABASE_PASSWORD=
+FUEL_ENV=
 ```
 
 ## usage
