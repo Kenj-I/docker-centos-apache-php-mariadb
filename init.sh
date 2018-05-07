@@ -10,5 +10,5 @@ mkdir log
 touch log/access.log
 touch log/error.log
 
-touch .env
-touch build/envfile
+cp ./.env.sample ./.env
+cp ./build/envfile.smaple ./build/envfile
