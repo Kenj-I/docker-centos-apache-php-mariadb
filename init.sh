@@ -11,4 +11,4 @@ touch log/access.log
 touch log/error.log
 
 cp ./.env.sample ./.env
-cp ./build/envfile.smaple ./build/envfile
+cp ./build/envfile.sample ./build/envfile
